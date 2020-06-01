@@ -81,9 +81,8 @@ for im_name in os.listdir('data_RAD/images/'):
         id2idx[im_name] = count
         count = count + 1
             
-img84_stack.dump_to_file("data_RAD/images84x84.pkl")
-img128_stack.dump_to_file("data_RAD/images128x128.pkl")
+cPickle.dump(img84_stack, open("data_RAD/images84x84.pkl", 'wb'))
+cPickle.dump(img128_stack, open("data_RAD/images128x128.pkl", 'wb'))
 json.dump(id2idx, open("data_RAD/imgid2idx.json", 'w'))
-## ccc
             
             
