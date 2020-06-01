@@ -155,7 +155,9 @@ def get_result(model, dataloader, device, args):
             result['ALL']['real'] += float(a.sum())
 
             q_types = q_types[0].split(", ")
+            print("q_types: ", q_types)            
             for i in q_types:
+                print("i: ", i)
                 question_types_result[ans_type[0]][i]['count'] += 1.0
                 question_types_result[ans_type[0]][i]['true'] += float(batch_score)
                 question_types_result[ans_type[0]][i]['real'] += float(a.sum())
@@ -168,6 +170,7 @@ def get_result(model, dataloader, device, args):
                 result[i]['score'] = -1
                 result[i]['score_percent'] = -100
             else: 
+                print("here")
                 result[i]['score'] = result[i]['true']/result[i]['count']
                 result[i]['score_percent'] = round(result[i]['score']*100,1)
             for j in quesntion_types:
