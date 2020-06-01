@@ -72,11 +72,11 @@ for im_name in os.listdir('data_RAD/images/'):
             img84_stack = np.concatenate(img84_stack, img84, axis=0)
             
         img128 = cv2.resize(img_gray, (128, 128))
-        img128 = img84.reshape((1, 128, 128, 1))
+        img128 = img128.reshape((1, 128, 128, 1))
         if img128_stack is None:
             img128_stack = img128
         else:
-            img84_stack = np.concatenate(img128_stack, img128, axis=0)
+            img128_stack = np.concatenate(img128_stack, img128, axis=0)
         
         id2idx[im_name] = count
         count = count + 1
@@ -84,6 +84,6 @@ for im_name in os.listdir('data_RAD/images/'):
 img84_stack.dump_to_file("data_RAD/images84x84.pkl")
 img128_stack.dump_to_file("data_RAD/images128x128.pkl")
 json.dump(id2idx, open("data_RAD/imgid2idx.json", 'w'))
-
+## ccc
             
             
