@@ -59,7 +59,7 @@ import matplotlib.pyplot as plt
 img84_stack = None
 img128_stack = None
 id2idx = {}
-count = 1
+count = 0
 for im_name in os.listdir('data_RAD/images/'):
     if im_name.endswith(".jpg"):
         img = cv2.imread('data_RAD/images/' + im_name)
