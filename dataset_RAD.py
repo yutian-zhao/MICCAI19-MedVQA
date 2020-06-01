@@ -248,12 +248,12 @@ class VQAFeatureDataset(Dataset):
     def __len__(self):
         return len(self.entries)
 
-def tfidf_from_questions(names, args, dictionary, dataroot='data', target=['rad']):
+def tfidf_from_questions(names, args, dictionary, dataroot='data_RAD', target=['rad']):
     inds = [[], []] # rows, cols for uncoalesce sparse matrix
     df = dict()
     N = len(dictionary)
-    if args.use_RAD:
-        dataroot = args.RAD_dir
+#    if args.use_RAD:
+#        dataroot = args.RAD_dir
     def populate(inds, df, text):
         tokens = dictionary.tokenize(text, True)
         for t in tokens:
