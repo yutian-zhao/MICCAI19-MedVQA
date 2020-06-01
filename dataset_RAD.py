@@ -302,16 +302,16 @@ def tfidf_from_questions(names, args, dictionary, dataroot='data', target=['rad'
     return tfidf, weights
 
 if __name__=='__main__':
-    # dictionary = Dictionary.load_from_file('data_RAD/dictionary.pkl')
-    # tfidf, weights = tfidf_from_questions(['train'], None, dictionary)
-    # w_emb = WordEmbedding(dictionary.ntoken, 300, .0, 'c')
-    # w_emb.init_embedding(os.path.join('data_RAD', 'glove6b_init_300d.npy'), tfidf, weights)
-    # with open('data_RAD/embed_tfidf_weights.pkl', 'wb') as f:
-    #     torch.save(w_emb, f)
-    # print("Saving embedding with tfidf and weights successfully")
-
     dictionary = Dictionary.load_from_file('data_RAD/dictionary.pkl')
+    tfidf, weights = tfidf_from_questions(['train'], None, dictionary)
     w_emb = WordEmbedding(dictionary.ntoken, 300, .0, 'c')
-    with open('data_RAD/embed_tfidf_weights.pkl', 'rb') as f:
-        w_emb = torch.load(f)
-    print("Load embedding with tfidf and weights successfully")
+    w_emb.init_embedding(os.path.join('data_RAD', 'glove6b_init_300d.npy'), tfidf, weights)
+    with open('data_RAD/embed_tfidf_weights.pkl', 'wb') as f:
+        torch.save(w_emb, f)
+    print("Saving embedding with tfidf and weights successfully")
+#
+#    dictionary = Dictionary.load_from_file('data_RAD/dictionary.pkl')
+#    w_emb = WordEmbedding(dictionary.ntoken, 300, .0, 'c')
+#    with open('data_RAD/embed_tfidf_weights.pkl', 'rb') as f:
+#        w_emb = torch.load(f)
+#    print("Load embedding with tfidf and weights successfully")
