@@ -121,11 +121,14 @@ def get_answer(p, dataloader):
 
 # Logit computation (for train, test or evaluate)
 def get_result(model, dataloader, device, args):
+    print("--------a")
     keys = ['count', 'real', 'true', 'real_percent', 'score', 'score_percent']
     question_types_result = dict((i, dict((j, dict((k, 0.0) for k in keys)) for j in quesntion_types)) for i in answer_types)
     result = dict((i, dict((j, 0.0) for j in keys)) for i in answer_types)
     with torch.no_grad():
+        print("--------b")
         for v, q, a, ans_type, q_types, p_type in iter(dataloader):
+            print("---------")
             if p_type[0] != "freeform":
                 continue
             if args.maml:
