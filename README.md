@@ -1,3 +1,10 @@
+# Introduction
+This is an implementation of MICCAI19-MedVQA to work on MedVQA dataset. The original model is designed trained and tested on VQA-RAD dataset. We retrained it and tested on MedVQA dataset, achieving **78.2** for close-end, **46.8** for open-end and **50.0** for all questions. This prove the robustness of BAN-MEVF model.
+
+All work is credit to AIOZ-AI group and thanks for their work.
+
+Contributor: Yutian Zhao, Jianan Yang
+
 # Mixture of Enhanced Visual Features (MEVF)
 
 This repository is the implementation of `MEVF` for the visual question answering task in medical domain. Our model achieved **43.9** for open-ended and **75.1** for close-end on [VQA-RAD dataset](https://www.nature.com/articles/sdata2018251#data-citations). For the detail, please refer to [link](https://arxiv.org/abs/1909.11867).
